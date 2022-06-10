@@ -181,11 +181,10 @@ void App_AcceleratorPedals_ResetAcceleratorPedalsToUnpressed(
 float App_AcceleratorPedals_GetPrimaryPedalPercentage(
         const struct AcceleratorPedals *const accelerator_pedals)
 {
-    return App_GetPedalPercentage_CountUp(
-            SAPPS_ENCODER_FULLY_PRESSED_VALUE, SAPPS_ENCODER_UNPRESSED_VALUE,
-            SAPPS_ENCODER_RESET_VALUE,
-            accelerator_pedals->get_secondary_encoder_counter_value(),
-            accelerator_pedals->set_secondary_encoder_counter);
+    return App_GetPedalPercentage_CountDown(
+            PAPPS_ENCODER_FULLY_PRESSED_VALUE, PAPPS_ENCODER_UNPRESSED_VALUE,
+            accelerator_pedals->get_primary_encoder_counter_value(),
+            accelerator_pedals->set_primary_encoder_counter);
 }
 
 float App_AcceleratorPedals_GetSecondaryPedalPercentage(
